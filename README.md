@@ -9,3 +9,26 @@ SELECT invoice_and_item_number, date, store_name, city, store_location, county,c
 FROM `bigquery-public-data.iowa_liquor_sales.sales` 
 order by volume_sold_liters desc
 LIMIT 10000
+
+
+SELECT  *
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+LIMIT 100000
+
+
+SELECT  invoice_and_item_number, date, city, store_location, 
+category_name, vendor_name, item_description,
+ bottle_volume_ml, state_bottle_cost, state_bottle_retail, 
+ bottles_sold, sale_dollars, volume_sold_liters
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+order by sale_dollars desc
+limit 100000
+
+
+select  count(distinct vendor_name) 
+from `bigquery-public-data.iowa_liquor_sales.sales` 
+
+
+
+
+
