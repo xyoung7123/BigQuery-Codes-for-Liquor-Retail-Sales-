@@ -25,8 +25,48 @@ order by sale_dollars desc
 limit 100000
 
 
+--CHECKING FOR DUPLICATES
 select  count(distinct vendor_name) 
 from `bigquery-public-data.iowa_liquor_sales.sales` 
+
+
+--CHECKING FOR LENGTH OF CELL
+ SELECT LENGTH(invoice_and_item_number)
+ FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+
+
+
+--CHECKING LENGTH OF STRINGS
+ SELECT invoice_and_item_number
+ FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+ WHERE LENGTH(invoice_and_item_number)>15
+
+
+--CHECKING FOR TEXT STRINGS
+SELECT invoice_and_item_number
+ FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+ WHERE SUBSTR(invoice_and_item_number, 1, 15) = 'S150842-0020010'
+
+
+-- USING THE TRIM TO CHECK FOR EMPTY SPACES
+ SELECT DISTINCT invoice_and_item_number
+ FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+ WHERE TRIM(invoice_and_item_number) = 'S150842-0020010'
+
+
+--CHECKING NUMERICAL DATA FOR OUTLINERS
+SELECT MIN(state_bottle_cost) AS min_cost, MAX(state_bottle_cost) AS max_cost
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+
+--CHECKING FOR NULL VALUES OR EMPTY CELLS
+SELECT *
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+WHERE category_name IS NULL
+
+--CHECKING FOR DUPLICATES
+SELECT COUNT(*)
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+
 
 
 
