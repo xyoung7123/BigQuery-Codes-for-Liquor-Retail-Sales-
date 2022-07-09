@@ -1,3 +1,4 @@
+[Liquor Sales Dashboard.xlsx](https://github.com/xyoung7123/BigQuery-Codes-for-Liquor-Retail-Sales-/files/9077942/Liquor.Sales.Dashboard.xlsx)
 # BigQuery-Codes-for-Liquor-Retail-Sales-
 BigQuery Codes for Sales Analysis of Liquor Business
 
