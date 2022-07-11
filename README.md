@@ -69,6 +69,36 @@ SELECT COUNT(*)
 FROM `bigquery-public-data.iowa_liquor_sales.sales` 
 
 
+--Extract Year from the date 
+SELECT 
+EXTRACT(YEAR FROM date) as year,
+COUNT(*) AS Number_of_sales
+FROM 
+`bigquery-public-data.iowa_liquor_sales.sales`
+GROUP BY
+year
+ORDER BY Number_of_sales DESC
+
+--deriving unit product price
+SELECT 
+vendor_name,
+item_description,
+state_bottle_cost,
+state_bottle_retail,
+(state_bottle_cost/state_bottle_retail)*100 as Unit_Price
+FROM 
+`bigquery-public-data.iowa_liquor_sales.sales` 
+WHERE 
+state_bottle_retail <> 0
+
+
+--Deriving Profit
+SELECT 
+state_bottle_cost, 
+state_bottle_retail,
+state_bottle_retail	- state_bottle_cost as unit_profit
+FROM 
+`bigquery-public-data.iowa_liquor_sales.sales`
 
 
 
