@@ -101,5 +101,12 @@ FROM
 `bigquery-public-data.iowa_liquor_sales.sales`
 
 
-
+--Selecting Total Profit
+SELECT 
+state_bottle_cost, 
+state_bottle_retail,
+bottles_sold,
+(state_bottle_retail	- state_bottle_cost) * bottles_sold as unit_profit
+FROM 
+`bigquery-public-data.iowa_liquor_sales.sales` 
 
